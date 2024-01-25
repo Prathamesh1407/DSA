@@ -1,0 +1,9 @@
+If we visualize 2d array in 1d array and then proceed with operations then the formula will look like
+    c*i+j 
+    c=Total Number of columns
+    (i,j)
+        this will give the 1d array index in the form of 2d array index
+        if 3x3 2D array is there and if I wanted to insert in (0,2)
+        then it will be
+        3*0 + 2 = 2
+        that means the value will get insert in 1D array at 2 nd index
