@@ -29,7 +29,7 @@ Node* reverseK(Node* head,int k)
     int c=0;
 
     //Reverse first K nodes
-    while(curr!=NULL && count<k)
+    while(curr!=NULL && c<k)
     {
         forward=curr->next;
         curr->next=prev;
