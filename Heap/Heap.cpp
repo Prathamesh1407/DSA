@@ -74,6 +74,31 @@ void Heap::print()
     cout << endl
          << endl;
 }
+void heapify(int arr[], int n, int i)
+{
+    int largest=i;
+    int leftInd=2*i,rightInd=2*i+1;
+
+    if(leftInd<=n && arr[leftInd]>arr[largest]) largest=leftInd;
+    if(rightInd<=n && arr[rightInd]>arr[largest]) largest=rightInd;
+
+    if(largest!=i)
+    {
+        swap(arr[largest],arr[i]);
+        heapify(arr,n,largest);
+    }
+}
+void heapSort(int arr[],int n)
+{
+    int size=n;
+    while (size>1)
+    {
+        swap(arr[size],arr[1]);
+        size--;
+        heapify(arr,size,1);
+    }
+    
+}
 int main()
 {
     Heap h1;
@@ -83,10 +108,20 @@ int main()
     h1.insert(20);
     h1.insert(1);
     h1.insert(100);
-    h1.deleteFromHeap();
-    h1.deleteFromHeap();
-    h1.deleteFromHeap();
-    h1.deleteFromHeap();
-    h1.deleteFromHeap();
+    // h1.deleteFromHeap();
+    // h1.deleteFromHeap();
+    // h1.deleteFromHeap();
+    // h1.deleteFromHeap();
+    // h1.deleteFromHeap();
+    int arr[7] = {-1, 4, 5, 1, 8, 7,2};
+    int n = 6;
+    for (int i = n/2; i > 0; i--)
+    {
+        heapify(arr, n, i);
+    }
+    for(int i=1;i<=n;i++) cout<<arr[i]<<" ";
+    cout<<endl;
+    heapSort(arr,n);
+    for(int i=1;i<=n;i++) cout<<arr[i]<<" ";
     return 0;
 }
