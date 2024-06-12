@@ -45,10 +45,14 @@ class Graph
     }
 
 public:
-    unordered_map<T, list<pair<T,T>>> adjList;
-    void addNodes(T u, T v, T w)
+    unordered_map<T, list<pair<T, T>>> adjList;
+    void addNodes(T u, T v, T w, bool isDirected)
     {
-        adjList[u].push_back({v,w});
+        adjList[u].push_back({v, w});
+        if (isDirected == false)
+        {
+            adjList[v].push_back({u, w});
+        }
     }
     void printNodes()
     {
@@ -57,7 +61,7 @@ public:
             cout << i.first << " -> ";
             for (auto j : i.second)
             {
-                cout << "[ "<<j.first<<" , " <<j.second<<" ], ";
+                cout << "[ " << j.first << " , " << j.second << " ], ";
             }
             cout << endl;
         }

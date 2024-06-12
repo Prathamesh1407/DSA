@@ -26,7 +26,7 @@ int main()
     for (int i = 0; i < m; i++)
     {
         cin >> u >> v >> w;
-        g.addNodes(u, v, w);
+        g.addNodes(u, v, w,1);
     }
     int src;
     cout << "Enter Source Node " << endl;
@@ -90,4 +90,5 @@ int main()
     2 3 7
     2 4 4
     4 5 -2
+    3 4 -1
 */
