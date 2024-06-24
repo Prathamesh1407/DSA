@@ -1,0 +1,6 @@
+1. x>>k ==> x/2 to the power k
+
+2. 31st bit is reserved for sign if negative 31st bit = 1
+positive to negative => 2's Compliment of +ve number
+
+3. x<<k ==> x*2 to the power k
