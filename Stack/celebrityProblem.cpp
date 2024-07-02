@@ -8,7 +8,7 @@ int main()
     vector<vector<int>> M = {{0, 1, 0},
                              {0, 0, 0},
                              {0, 1, 0}};
-    int n = M.size();
+    int n = M.size(); 
     stack<int> st;
     for (int i = 0; i < n; i++)
     {
@@ -46,5 +46,4 @@ int main()
     if (zeroCount != 1)
         return -1;
     return ans;
-    return 0;
 }
