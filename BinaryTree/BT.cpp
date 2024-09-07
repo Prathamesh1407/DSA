@@ -74,6 +74,51 @@ void postorder(Node *root)
     postorder(root->right);
     cout << root->data << " ";
 }
+bool solve(Node* root)
+{
+    Node *curr = root;
+    int prev = INT_MIN, flag = 1;
+    while (curr != NULL)
+    {
+        if (curr->left == NULL)
+        {
+            cout << "1 " << curr->data << " " << prev << endl;
+            if (curr->data < prev)
+            {
+                cout<<1<<endl;
+                return 0;
+            }
+            prev = curr->data;
+            curr = curr->right;
+        }
+        else
+        {
+            Node *pred = curr->left;
+            while (pred->right != NULL && pred->right != curr)
+            {
+                pred = pred->right;
+            }
+            if (pred->right == NULL)
+            {
+                pred->right = curr;
+                curr = curr->left;
+            }
+            else
+            {
+                cout << "2 " << curr->data << " " << prev << endl;
+                if (curr->data < prev)
+                {
+                    cout<<2<<endl;
+                    return false;
+                }
+                pred->right = NULL;
+                prev = curr->data;
+                curr = curr->right;
+            }
+        }
+    }
+    return true;
+}
 int main()
 {
     // 1 2 3 -1 -1 4 -1 -1 5 6 -1 -1 7 -1 -1
@@ -89,5 +134,7 @@ int main()
     cout << endl
          << "Postorder Traversal" << endl;
     postorder(root);
+    cout<<endl;
+    cout<<solve(root);
     return 0;
 }

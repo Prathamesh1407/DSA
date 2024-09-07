@@ -26,7 +26,7 @@ void Heap::insert(int data)
     {
         int parent = ind / 2;
         if (arr[parent] < arr[ind])
-        {
+        { 
             swap(arr[parent], arr[ind]);
             ind = parent;
         }
@@ -108,7 +108,7 @@ int main()
     h1.insert(20);
     h1.insert(1);
     h1.insert(100);
-    // h1.deleteFromHeap();
+    h1.deleteFromHeap();
     // h1.deleteFromHeap();
     // h1.deleteFromHeap();
     // h1.deleteFromHeap();
